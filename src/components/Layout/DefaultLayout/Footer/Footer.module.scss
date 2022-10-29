@@ -1,0 +1,82 @@
+.footer {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &__container {
+        // box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+        padding-top: 60px !important;
+        padding-bottom: 30px !important;
+        background-color: rgb(255, 255, 255);
+
+        img {
+            width: 50%;
+            height: auto;
+        }
+
+        &-contact {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            margin-bottom: 1.6rem;
+
+            i {
+                color: var(--primary-color);
+                margin-right: 0.5rem;
+            }
+
+            p {
+                color: #666;
+                font-size: 1.8rem;
+            }
+        }
+
+        &-content {
+            text-align: center;
+
+            &-title {
+                color: #1c1c1c;
+                font-size: 2.4rem;
+            }
+
+            &-menu {
+                &-item.active {
+                    a {
+                        color: var(--primary-color);
+                    }
+                }
+
+                p {
+                    padding: 0.6rem;
+
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #666;
+                    font-size: 1.6rem;
+                }
+
+                a:hover {
+                    color: var(--primary-color);
+                }
+            }
+        }
+    }
+
+    &__logo {
+        width: 150px;
+        margin-left: 0;
+        margin-right: 30px;
+
+        a {
+            text-decoration: none;
+            display: block;
+            color: var(--primary-color);
+            font-size: 3.2rem;
+            text-transform: uppercase;
+            font-weight: bolder;
+            margin: 0
+        }
+    }
+}

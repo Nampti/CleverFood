@@ -1,0 +1,169 @@
+.cart {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 40px;
+
+    &__info {
+        width: 40%;
+        margin-right: 30px;
+        margin-left: 30px;
+        padding: 20px;
+        box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+        position: sticky;
+        top: 90px;
+
+        &-txt {
+
+            &>* {
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 2rem;
+            }
+
+            &-price {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 0;
+                font-size: 2rem;
+
+                span:nth-child(2) {
+                    font-size: 2.4rem;
+                    color: var(--primary-color);
+                    font-weight: bold;
+                    vertical-align: middle;
+                    text-align: center;
+                    line-height: 120%;
+                }
+            }
+
+        }
+
+        &-btn {
+            text-align: center;
+
+            button {
+                width: 100%;
+                padding: 10px;
+                font-size: 1.9rem;
+                text-transform: uppercase;
+                background-color: var(--primary-color);
+                color: #fff;
+                cursor: pointer;
+                border: none;
+            }
+        }
+
+    }
+
+    &__container {
+
+
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+
+            &-img {
+
+                img {
+                    height: 150px;
+                }
+            }
+
+            &-info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-grow: 1;
+                margin: 0 20px;
+
+                &--name {
+                    margin-right: 15px;
+                    color: #1c1c1c;
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                }
+
+                &--name,
+                &--price {
+                    font-size: 2rem;
+                }
+
+                &--price {
+                    font-size: 2.4rem;
+                    color: var(--primary-color);
+                    font-weight: bold;
+                    vertical-align: middle;
+                    text-align: center;
+                    line-height: 120%;
+                }
+            }
+
+
+            &-quantity {
+                display: flex;
+                align-items: flex-start;
+                justify-items: flex-start;
+
+                i {
+                    color: var(--primary-color);
+                }
+
+                &-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-items: center;
+                    height: 30px;
+                    width: 30px;
+                    border: 2px solid var(--primary-color);
+                    font-size: 1.5rem;
+                    cursor: pointer;
+
+                    i {
+                        margin: auto;
+                    }
+                }
+
+
+                &-btn:hover {
+                    color: #000;
+                    background-color: #f1f1f1;
+
+                }
+
+                &-btn:last-child {
+                    margin-right: 10px
+                }
+
+                &-input {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 30px;
+                    width: 90px;
+                    font-size: 1.5rem;
+                    border-top: 2px solid var(--primary-color);
+                    border-bottom: 2px solid var(--primary-color);
+                }
+            }
+
+            &-delete {
+                color: var(--primary-color);
+                cursor: pointer;
+                margin-left: 30px;
+            }
+
+            &-delete:hover {
+                color: #000;
+
+
+            }
+
+        }
+    }
+}

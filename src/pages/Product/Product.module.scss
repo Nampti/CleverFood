@@ -1,0 +1,119 @@
+.product {
+    padding: 40px 20px;
+    margin: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px;
+        margin-bottom: 80px;
+    }
+
+    &-img {
+        width: 150%;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &-info {
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        &--title {
+            margin-top: 26px;
+            font-size: 2.72rem;
+            margin-bottom: 13px;
+        }
+
+        &--divide {
+            height: 3px;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 1em 0 1em;
+            width: 100%;
+            max-width: 30px;
+        }
+
+        &--price {
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 120%;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+
+        &--quantity {
+            display: flex;
+            align-items: flex-start;
+            justify-items: flex-start;
+
+            i {
+                color: var(--primary-color);
+            }
+
+            &-btn {
+                display: flex;
+                align-items: center;
+                justify-items: center;
+                height: 30px;
+                width: 30px;
+                border: 2px solid var(--primary-color);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            &-btn:hover {
+                color: #000;
+                background-color: #f1f1f1;
+
+            }
+
+            &-input {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30px;
+                width: 90px;
+                font-size: 1.5rem;
+                border-top: 2px solid var(--primary-color);
+                border-bottom: 2px solid var(--primary-color);
+            }
+
+        }
+
+        &--add {
+            margin-top: 26px;
+
+            button {
+                padding: 13px 26px;
+                font-size: 1.9rem;
+                text-transform: uppercase;
+                background-color: #d26e4b;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            button:hover {
+                box-shadow: inset 0 0 0 100px rgb(0 0 0 / 20%);
+            }
+
+        }
+    }
+
+}
