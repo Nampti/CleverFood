@@ -17,15 +17,56 @@ function Cart() {
     const totalPrice = state.reduce((totalPrice, item) => {
         return totalPrice + item.price * item.quantity;
     }, 0);
+
+    const [initialValues, setInitialValues] = useState({
+        cusName: "",
+        phone: "",
+        address: "",
+        pay: totalPrice + 'đ',
+        bill: state,
+    });
+    const [formValues, setFormValues] = useState([]);
+
+    const submitForm = () => {
+        alert('Đặt hàng thành công')
+        setFormValues((prevFormValues) => [...prevFormValues, initialValues]);
+    };
     useEffect(() => {
-        localStorage.setItem(totalPriceKey, JSON.stringify(totalPrice));
-    })
-    // console.log(totalProduct);
-    // console.log(totalPrice)
-    // console.log(state)
+        localStorage.setItem("cusInfo", JSON.stringify(formValues));
+    }, [formValues]);
+
     return (
         <div className={cx('cart')}>
             <div className={cx('cart__info')}>
+                <div className={cx('cart__info-cus')}>
+                    <div className={cx('cart__info-cus-title')}>
+                        Thông tin khách hàng
+                    </div>
+                    <div className={cx('cart__info-cus-form')}>
+                        <div className={cx('grid', 'wide')}>
+                            <div className={cx('row')}>
+                                <div className={cx('col', 'l-6', 'cart__info-cus-form-item')}>
+                                    <input value={initialValues.cusName} type="text" name='full_name' placeholder="Họ và tên" onChange={(e) =>
+                                        setInitialValues({ ...initialValues, cusName: e.target.value })
+                                    }></input>
+                                </div>
+                                <div className={cx('col', 'l-6', 'cart__info-cus-form-item')}>
+                                    <input value={initialValues.phone} type="tel" name='phone' placeholder="Số điện thoại" onChange={(e) =>
+                                        setInitialValues({ ...initialValues, phone: e.target.value })
+                                    }></input>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className={cx('col', 'l-12', 'cart__info-cus-form-item')}>
+                                    <input value={initialValues.address} type="text" name='address' placeholder="Địa chỉ" onChange={(e) =>
+                                        setInitialValues({ ...initialValues, address: e.target.value })
+                                    }></input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div className={cx('cart__info-txt')}>
                     <p>
                         Bạn đang có {state.length} sản phẩm trong giỏ hàng
@@ -37,7 +78,7 @@ function Cart() {
                     </div>
                 </div>
                 <div className={cx('cart__info-btn')}>
-                    <button>Đặt hàng</button>
+                    <button onClick={submitForm}>Đặt hàng</button>
                 </div>
             </div>
             <div className={cx('cart__container')}>
