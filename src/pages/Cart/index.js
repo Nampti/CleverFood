@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { Cartcontext } from "../../context";
 import styles from './Cart.module.scss';
@@ -21,6 +22,7 @@ function Cart() {
     const [initialValues, setInitialValues] = useState({
         cusName: "",
         phone: "",
+        email: "",
         address: "",
         pay: totalPrice + 'đ',
         bill: state,
@@ -53,6 +55,13 @@ function Cart() {
                                 <div className={cx('col', 'l-6', 'cart__info-cus-form-item')}>
                                     <input value={initialValues.phone} type="tel" name='phone' placeholder="Số điện thoại" onChange={(e) =>
                                         setInitialValues({ ...initialValues, phone: e.target.value })
+                                    }></input>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className={cx('col', 'l-12', 'cart__info-cus-form-item')}>
+                                    <input value={initialValues.email} type="mail" name='email' placeholder="Email" onChange={(e) =>
+                                        setInitialValues({ ...initialValues, email: e.target.value })
                                     }></input>
                                 </div>
                             </div>
