@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
+import { Cartcontext } from "../../../../context";
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
@@ -16,20 +17,14 @@ const menuNav = [
         display: "Cửa hàng",
         path: "/shop"
     },
-    {
-        display: "Giỏ hàng",
-        path: "/cart"
-    },
 ]
 
 function Header() {
     const { pathname } = useLocation()
     const activeNav = menuNav.findIndex(e => e.path === pathname)
     const headerRef = useRef(null)
-    const [show, setShow] = useState(true);
-    const handleClick = () => {
-        setShow(!show)
-    }
+    const Globalstate = useContext(Cartcontext);
+    const state = Globalstate.state;
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 0) {
@@ -47,12 +42,12 @@ function Header() {
         <div className={cx('header')} ref={headerRef}>
             <div className={cx('grid', 'wide')}>
                 <div className={cx('row', 'header__row')}>
-                    <div className={cx('col', 'l-3')}>
+                    <div className={cx('col', 'l-2')}>
                         <div className={cx('header__logo')}>
                             <a href="/" rel="home" title="CleverFood">CleverFood</a>
                         </div>
                     </div>
-                    <div className={cx('col', 'l-6')}>
+                    <div className={cx('col', 'l-8')}>
                         <div className={cx('header__navbar')}>
                             {menuNav.map((item, index) => (
                                 <div key={index} className={cx('header__navbar-item', `${index === activeNav ? 'active' : ''}`)}>
@@ -64,11 +59,13 @@ function Header() {
                         </div>
                     </div>
 
-                    <div className={cx('col', 'l-3')}>
-                        <div className={cx('header__search')}>
-                            <i className={cx('fas fa-search')} onClick={handleClick}></i>
-                            <input type="text" placeholder="Search" className={cx('header__search-input', `${(show === true) ? '' : 'show'}`)}></input>
-                        </div>
+                    <div className={cx('col', 'l-2')}>
+                        <Link to={"/cart"}>
+                            <div className={cx('header__cart')}>
+                                <i class="fa fa-store"></i>
+                                <div className={cx('header__cart-number')}>{state.length}</div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
