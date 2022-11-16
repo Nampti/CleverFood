@@ -13,11 +13,11 @@ function Section() {
                     {productData.getProducts(8).map((item, index) => (
                         <ProductCard
                             key={index}
-                            img={item.img}
-                            name={item.name}
+                            img={item.image}
+                            name={item.productName}
                             price={item.price}
                             slug={item.slug}
-                        ></ProductCard>
+                        />
                     ))}
                 </div>
             </div>
