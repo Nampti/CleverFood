@@ -1,15 +1,15 @@
 const shopFilter = [
     {
-        display: "Rau củ",
-        categorySlug: "raucu",
+        display: "Rau",
+        categorySlug: "rau",
     },
     {
-        display: "Trái cây",
-        categorySlug: "traicay"
+        display: "Hoa quả",
+        categorySlug: "hoaqua"
     },
     {
-        display: "Đồ uống",
-        categorySlug: "douong"
+        display: "Thịt",
+        categorySlug: "thit"
     },
     {
         display: "Đồ khô",
