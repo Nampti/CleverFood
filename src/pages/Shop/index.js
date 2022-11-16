@@ -14,6 +14,11 @@ function Shop() {
     }
     const productList = productData.getAllProducts();
     const [products, setProducts] = useState(productList);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(productList));
+    }, [productList]);
     const [filter, setFilter] = useState(initFilter)
 
     const filterSelect = (type, checked, item) => {
@@ -35,7 +40,6 @@ function Shop() {
             }
         }
     }
-
     const clearFilter = () => setFilter(initFilter)
 
     const updateProducts = useCallback(
@@ -71,8 +75,6 @@ function Shop() {
                                 <CheckBox label={item.display}
                                     onChange={(input) => filterSelect("CATEGORY",
                                         input.checked, item)}
-
-
                                     checked={filter.category.includes(item.categorySlug)} />
                             </div>
                         ))}
