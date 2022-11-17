@@ -11,12 +11,12 @@ function Cart() {
     const state = Globalstate.state;
     const dispatch = Globalstate.dispatch;
     const totalProduct = state.reduce((totalProduct, item) => {
-        return totalProduct + item.buyQuantity;
+        return totalProduct + item.quantity;
 
     }, 0);
 
     const totalPrice = state.reduce((totalPrice, item) => {
-        return totalPrice + item.price * item.buyQuantity;
+        return totalPrice + item.price * item.quantity;
     }, 0);
 
     const [initialValues, setInitialValues] = useState({
@@ -82,7 +82,7 @@ function Cart() {
                     </p>
                     <div className={cx('cart__info-txt-price')}>
                         <span>Thành tiền </span>
-                        <span>{numberWithCommas(totalPrice)} đ</span>
+                        <span>{(totalPrice)} đ</span>
                         <p></p>
                     </div>
                 </div>
@@ -94,20 +94,20 @@ function Cart() {
                 {state.map((item, index) => (
                     <div className={cx('cart__container-item')} key={index}>
                         <div className={cx('cart__container-item-img')}>
-                            <img src={item.image}></img>
+                            <img src={`data:image/jpeg;base64,${item.image}`}></img>
                         </div>
                         <div className={cx('cart__container-item-info')}>
                             <div className={cx('cart__container-item-info--name')}>
                                 <p>{item.productName}</p>
                             </div>
                             <div className={cx('cart__container-item-info--price')}>
-                                <span>{numberWithCommas(item.price)} đ</span>
+                                <span>{(item.price)} đ</span>
                             </div>
                         </div>
                         <div className={cx('cart__container-item-quantity')}>
 
                             <div className={cx('cart__container-item-quantity-btn')} onClick={() => {
-                                if (item.buyQuantity > 1) {
+                                if (item.quantity > 1) {
                                     dispatch({ type: "DECREASE", payload: item });
                                 } else {
                                     dispatch({ type: "REMOVE", payload: item });
@@ -116,7 +116,7 @@ function Cart() {
                                 <i className={cx('fa fa-minus')}></i>
                             </div>
                             <div className={cx('cart__container-item-quantity-input')}>
-                                {item.buyQuantity}
+                                {item.quantity}
                             </div>
                             <div className={cx('cart__container-item-quantity-btn')} onClick={() => dispatch({ type: "INCREASE", payload: item })}>
                                 <i className={cx('fa fa-plus')}></i>
