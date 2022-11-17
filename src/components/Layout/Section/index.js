@@ -19,9 +19,9 @@ function Section() {
                         <ProductCard
                             key={index}
                             img={item.image}
-                            name={item.title}
+                            name={item.productName}
                             price={item.price}
-                            title={item.title}
+                            slug={item.slug}
                         />
                     ))}
                 </div>
