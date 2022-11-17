@@ -5,7 +5,7 @@ import styles from './Section.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 function Section() {
-    const products = productData.getProducts(8);
+    const products = productData.getAllProducts();
     useEffect(() => {
         localStorage.setItem('items', JSON.stringify(products));
     }, [products]);
