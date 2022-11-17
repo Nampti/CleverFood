@@ -10,14 +10,14 @@ function ProductCard(props) {
             <Link to={`/shop/${props.slug}`}>
                 <div className={cx('product-card-container')}>
                     <div className={cx('product-card-img')}>
-                        <img src={props.img} alt=""></img>
+                        <img src={`data:image/jpeg;base64,${props.img}`} alt=""></img>
                     </div>
                     <div className={cx('product-card-deltails')}>
                         <div className={cx('product-card-deltails--title')}>
                             <h2>{props.name}</h2>
                         </div>
                         <span className={cx('product-card-deltails--price')}>
-                            {numberWithCommas(props.price)}
+                            {props.price}
                             <span className={cx('product-card-deltails--icon')}> ₫</span>
                         </span>
                     </div>
