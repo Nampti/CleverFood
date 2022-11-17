@@ -1,4 +1,4 @@
-
+/** @format */
 
 import { createContext, useReducer } from "react";
 
@@ -17,7 +17,7 @@ export const Context = (props) => {
             case "INCREASE":
                 const tempstate1 = state.map((item) => {
                     if (item.slug === action.payload.slug) {
-                        return { ...item, buyQuantity: item.buyQuantity + 1 };
+                        return { ...item, quantity: item.quantity + 1 };
                     } else {
                         return item;
                     }
@@ -26,7 +26,7 @@ export const Context = (props) => {
             case "DECREASE":
                 const tempstate2 = state.map((item) => {
                     if (item.slug === action.payload.slug) {
-                        return { ...item, buyQuantity: item.buyQuantity - 1 };
+                        return { ...item, quantity: item.quantity - 1 };
                     } else {
                         return item;
                     }
