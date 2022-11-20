@@ -24,19 +24,15 @@ function Cart() {
         phone: "",
         email: "",
         address: "",
-        pay: totalPrice + 'đ',
-        bill: state,
     });
-    const [formValues, setFormValues] = useState([]);
-
-    const submitForm = () => {
+  
+    const submitForm = (e) => {
+        e.preventDefault();
         alert('Đặt hàng thành công')
-        setFormValues((prevFormValues) => [...prevFormValues, initialValues]);
+        const data = {...initialValues,pay: totalPrice, bill: state}
+//         Gửi data thay vì formValues
+        console.log(data):
     };
-    useEffect(() => {
-        localStorage.setItem("cusInfo", JSON.stringify(formValues));
-    }, [formValues]);
-
     return (
         <div className={cx('cart')}>
             <div className={cx('cart__info')}>
