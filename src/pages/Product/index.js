@@ -36,7 +36,10 @@ function Product() {
                     <p>Trái cây là nguồn cung cấp nhiều chất dinh dưỡng thiết yếu được tiêu thụ ít, bao gồm kali, chất xơ, vitamin C và folate (axit folic). Chế độ ăn giàu kali có thể giúp duy trì huyết áp khỏe mạnh. Các nguồn trái cây cung cấp kali bao gồm chuối, mận khô và nước ép mận, đào và mơ khô, dưa hấu, dưa mật và nước cam.</p>
 
                     <div className={cx('product-info--add')}>
-                        <button onClick={() => dispatch({ type: "ADD", payload: product })}>Thêm vào giỏ</button>
+                        <button onClick={() => {
+                            alert("Thêm vào giỏ thành công")
+                            dispatch({ type: "ADD", payload: product })
+                        }}>Thêm vào giỏ</button>
                     </div>
                 </div>
             </div>
